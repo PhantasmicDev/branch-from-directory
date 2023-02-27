@@ -14,7 +14,7 @@ git add .
 git commit -m $INPUT_COMMIT_MESSAGE
 
 
-if [[ $INPUT_OVERWRITE_HISTORY == true ]]; then
+if [[ $INPUT_OVERWRITE_BRANCH_HISTORY == 'true' ]]; then
 	git push --force origin $INPUT_TARGET_BRANCH
 else
 	git push --set-upstream origin $INPUT_TARGET_BRANCH

@@ -8,8 +8,14 @@ branding:
 inputs:
   target-branch:
     description: "The desired branch push the target directory to."
+    required: true
   directory:
     description: "The desired directory for the branch."
+    required: true
+  overwrite-branch-history:
+    description: "Should the history of the target branch be preserved."
+    required: false
+    default: 'false'
 
 runs:
   using: "composite"
@@ -19,3 +25,4 @@ runs:
       env:
         INPUT_TARGET_BRANCH: ${{ inputs.target-branch }}
         INPUT_DIRECTORY: ${{ inputs.directory }}
+        INPUT_OVERWRITE_HISTORY: ${{ inputs.overwrite-branch-history }}
