@@ -1,20 +1,14 @@
-cd $INPUT_TARGET_DIRECTORY
-git init
-
 git config user.name "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
-# Create the new branch
-git branch $INPUT_TARGET_BRANCH
+git subtree split -P $INPUT_DIRECTORY -b $INPUT_TARGET_BRANCH
 
-# Checkout new branch
-git checkout $INPUT_TARGET_BRANCH
+if [ -n $INPUT_TAG ]; then
+	git tag $INPUT_TAG
+fi
 
-git add .
-git commit -m $INPUT_COMMIT_MESSAGE
+git push origin $INPUT_TARGET_BRANCH
 
-if [[ $INPUT_OVERWRITE_BRANCH_HISTORY == 'true' ]]; then
-	git push --force origin $INPUT_TARGET_BRANCH
-else
-	git push --set-upstream origin $INPUT_TARGET_BRANCH
+if [ -n $INPUT_TAG ]; then
+	git push origin $INPUT_TAG
 fi
