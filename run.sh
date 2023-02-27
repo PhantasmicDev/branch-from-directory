@@ -12,8 +12,7 @@ if [ -n $INPUT_TAG ]; then
 	git tag $INPUT_TAG
 fi
 
-git pull origin $INPUT_TARGET_BRANCH
-git push origin $INPUT_TARGET_BRANCH
+git push -f origin $INPUT_TARGET_BRANCH
 
 if [ -n $INPUT_TAG ]; then
 	git push origin $INPUT_TAG
