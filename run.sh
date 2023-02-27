@@ -2,7 +2,7 @@ git config user.name "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # Create the new branch
-git branch -b $INPUT_TARGET_BRANCH
+git branch $INPUT_TARGET_BRANCH
 
 # Checkout new branch
 git checkout $INPUT_TARGET_BRANCH
