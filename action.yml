@@ -6,12 +6,16 @@ branding:
   color: "white"
 
 inputs:
-  my-input:
-    description: "Input Example"
-    required: false
+  target-branch:
+    description: "The desired branch push the target directory to."
+  directory:
+    description: "The desired directory for the branch."
 
 runs:
   using: "composite"
   steps:
     - run: $GITHUB_ACTION_PATH/run.sh
       shell: bash
+      env:
+        INPUT_TARGET_BRANCH: ${{ inputs.target-branch }}
+        INPUT_DIRECTORY: ${{ inputs.directory }}
