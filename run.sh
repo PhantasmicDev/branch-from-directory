@@ -10,6 +10,8 @@ git checkout $INPUT_TARGET_BRANCH
 # Navigate to desired directory
 cd $INPUT_TARGET_DIRECTORY
 
+git init
+
 git add .
 git commit -m $INPUT_COMMIT_MESSAGE
 
