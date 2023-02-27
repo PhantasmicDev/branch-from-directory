@@ -12,10 +12,8 @@ inputs:
   directory:
     description: "The desired directory for the branch."
     required: true
-  overwrite-branch-history:
-    description: "Should the history of the target branch be preserved."
-    required: false
-    default: 'false'
+  tag:
+    description: "The tag for the release."
 
 runs:
   using: "composite"
@@ -25,4 +23,4 @@ runs:
       env:
         INPUT_TARGET_BRANCH: ${{ inputs.target-branch }}
         INPUT_DIRECTORY: ${{ inputs.directory }}
-        INPUT_OVERWRITE_HISTORY: ${{ inputs.overwrite-branch-history }}
+        INPUT_TAG: ${{ inputs.tag }}
