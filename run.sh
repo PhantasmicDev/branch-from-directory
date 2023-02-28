@@ -12,7 +12,8 @@ if [ -n $INPUT_TAG ]; then
 	git tag $INPUT_TAG
 fi
 
-git push -f origin $INPUT_BRANCH
+#git push --set-upstream origin dumdum
+git push -f --set-upstream origin $INPUT_BRANCH
 
 if [ -n $INPUT_TAG ]; then
 	git push origin $INPUT_TAG
