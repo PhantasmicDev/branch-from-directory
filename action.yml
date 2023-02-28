@@ -1,6 +1,6 @@
 name: "Branch from Directory"
 author: "PhantasmicDev"
-description: ""
+description: "Push a directory as a branch in your repository."
 branding:
   icon: "git-branch"
   color: "green"
@@ -14,6 +14,12 @@ inputs:
     required: true
   tag:
     description: "The tag for the release."
+  checkout:
+    description: "Checkout repository."
+    default: "true"
+  ref:
+    description: "The branch to checkout if 'checkout' is set to true."
+    default: ${{ github.ref }}
 
 runs:
   using: "composite"
@@ -24,3 +30,6 @@ runs:
         INPUT_BRANCH: ${{ inputs.branch }}
         INPUT_DIRECTORY: ${{ inputs.directory }}
         INPUT_TAG: ${{ inputs.tag }}
+        INPUT_CHECKOUT: ${{ inputs.checkout }}
+        INPUT_REF: ${{ inputs.ref }}
+
