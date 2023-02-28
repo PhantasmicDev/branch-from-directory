@@ -1,12 +1,3 @@
-CHECKOUT=$(echo "$INPUT_CHECKOUT" | tr '[:upper:]' '[:lower:]')
-
-if [[ "$CHECKOUT" == "true" ]]; then
-	git checkout $(basename $INPUT_REF)
-else if [[ "$CHECKOUT" != "false" ]]
-	echo "ERROR: Invalid input value for 'checkout': $INPUT_CHECKOUT"
-	exit 1
-fi
-
 git config user.name "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
