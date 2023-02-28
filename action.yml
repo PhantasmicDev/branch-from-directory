@@ -6,7 +6,7 @@ branding:
   color: "green"
 
 inputs:
-  target-branch:
+  branch:
     description: "The desired branch push the target directory to."
     required: true
   directory:
@@ -21,6 +21,6 @@ runs:
     - run: $GITHUB_ACTION_PATH/run.sh
       shell: bash
       env:
-        INPUT_BRANCH: ${{ inputs.target-branch }}
+        INPUT_BRANCH: ${{ inputs.branch }}
         INPUT_DIRECTORY: ${{ inputs.directory }}
         INPUT_TAG: ${{ inputs.tag }}
