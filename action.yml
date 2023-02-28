@@ -1,9 +1,9 @@
-name: "Bash Action Template"
+name: "Branch from Directory"
 author: "PhantasmicDev"
-description: "A template with the bare minimum to begin developing a custom GitHub action that runs a bash script."
+description: ""
 branding:
-  icon: "file-text"
-  color: "white"
+  icon: "git-branch"
+  color: "green"
 
 inputs:
   target-branch:
@@ -21,6 +21,6 @@ runs:
     - run: $GITHUB_ACTION_PATH/run.sh
       shell: bash
       env:
-        INPUT_TARGET_BRANCH: ${{ inputs.target-branch }}
+        INPUT_BRANCH: ${{ inputs.target-branch }}
         INPUT_DIRECTORY: ${{ inputs.directory }}
         INPUT_TAG: ${{ inputs.tag }}
